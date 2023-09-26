@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
+
 export class WeatherComponent implements OnInit {
   city: string = '';
   constructor() { }
@@ -23,7 +24,6 @@ export class WeatherComponent implements OnInit {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3c414ac92db0fcf46c54fc734865d66b&units=metric` );
       // console.log("data",response);
       const data = await response.json();
-      
 
       const cityElement = document.querySelector(".city");
       if (cityElement) {
