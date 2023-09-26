@@ -1,51 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnInit {
-
+  city: string = '';
   constructor() { }
 
   ngOnInit(): void {
-    this.weatherApi();
   }
 
   apiKey = "3c414ac92db0fcf46c54fc734865d66b";
-  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=rajahmundry&appid=${this.apiKey}`;
+  apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=rajahmundry&appid=3c414ac92db0fcf46c54fc734865d66b&units=metric";
+  searchBox = document.querySelector(".searchCity");
+  searchBtn = document.querySelector(".searchBtn");
 
-  async weatherApi() {
+  async weatherApi(city:string){
     try {
-      const response = await fetch(this.apiUrl);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3c414ac92db0fcf46c54fc734865d66b&units=metric` );
+      // console.log("data",response);
       const data = await response.json();
-      console.log(data);
+      
 
       const cityElement = document.querySelector(".city");
       if (cityElement) {
-        cityElement.innerHTML = "rrr";
+        cityElement.innerHTML = data.name;
       } else {
         console.error("Element with class 'city' not found.");
       }
 
       const tempElement = document.querySelector(".temp");
       if (tempElement) {
-        tempElement.innerHTML = "28";
+        tempElement.innerHTML = Math.round(data.main.temp) + "°C";
       } else {
         console.error("Element with class 'temp' not found.");
       }
 
       const humidityElement = document.querySelector(".humidity");
       if (humidityElement) {
-        humidityElement.innerHTML = "rrr";
+        humidityElement.innerHTML = data.main.humidity + "%";
       } else {
         console.error("Element with class 'humidity' not found.");
       }
 
       const windSpeedEle = document.querySelector(".windSpeed");
       if (windSpeedEle) {
-        windSpeedEle.innerHTML = "rrr";
+        windSpeedEle.innerHTML = data.wind.speed + "km/p";
       } else {
         console.error("Element with class 'windSpeed' not found.");
       }
@@ -53,5 +56,9 @@ export class WeatherComponent implements OnInit {
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
+  }
+
+  onSearchBtnClick() {
+    this.weatherApi(this.city);
   }
 }

@@ -7,13 +7,12 @@
 }
 
 .container{
-    background-color: #f2e0e0;
+    background-color: #000000;
     display: flex;
     justify-content: center;
 }
 
-.search-box{
-    margin: 10px;
+.searchCity{
     padding: 5px;
     height: 30px;
     width: 320px;
@@ -22,13 +21,15 @@
 }
 .TypeBox{
     display: flex;
+    margin: 10px;
 }
 
 .searchImg{
     width: 22px;
     float: right;
     height: 23px;
-    padding: 20px 10px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 6px;
 }
 .weatherReport{
     display: flex;
