@@ -1,10 +1,13 @@
 .upper-half{
     height: 500px;
     width: 350px;
+    margin: 30px;
     border-radius: 10px;
-    background-color: rgb(123, 245, 237);
+    background-image: linear-gradient(#A88AE3,#00abff, rgb(123, 245, 237), #00000021) ;
 }
+
 .container{
+    background-color: #f2e0e0;
     display: flex;
     justify-content: center;
 }
@@ -22,8 +25,12 @@
 }
 
 .searchImg{
-  width: 28px;
-  float: right;
-  height: 28px;
-  padding: 16px 6px 0px 0px;
+    width: 22px;
+    float: right;
+    height: 23px;
+    padding: 20px 10px 0px 0px;
+}
+.weatherReport{
+    display: flex;
+    justify-content: center;
 }
