@@ -21,6 +21,35 @@ export class WeatherComponent implements OnInit {
       const response = await fetch(this.apiUrl);
       const data = await response.json();
       console.log(data);
+
+      const cityElement = document.querySelector(".city");
+      if (cityElement) {
+        cityElement.innerHTML = "rrr";
+      } else {
+        console.error("Element with class 'city' not found.");
+      }
+
+      const tempElement = document.querySelector(".temp");
+      if (tempElement) {
+        tempElement.innerHTML = "28";
+      } else {
+        console.error("Element with class 'temp' not found.");
+      }
+
+      const humidityElement = document.querySelector(".humidity");
+      if (humidityElement) {
+        humidityElement.innerHTML = "rrr";
+      } else {
+        console.error("Element with class 'humidity' not found.");
+      }
+
+      const windSpeedEle = document.querySelector(".windSpeed");
+      if (windSpeedEle) {
+        windSpeedEle.innerHTML = "rrr";
+      } else {
+        console.error("Element with class 'windSpeed' not found.");
+      }
+
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
